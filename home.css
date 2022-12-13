@@ -1,0 +1,15 @@
+#tiles-container{
+	margin-top:5px;
+	background-color:"blue";
+	display:flex;
+	flex-direction:flow;
+	flex-wrap:wrap;
+	justify-content:center;
+}
+
+.tile{
+	background-color:red;
+	min-height:200px;
+	min-width:290px;
+	margin:10px;
+}
