@@ -5,11 +5,32 @@
 	flex-direction:flow;
 	flex-wrap:wrap;
 	justify-content:center;
+	Z-index:-1;
 }
 
 .tile{
-	background-color:red;
-	min-height:200px;
-	min-width:290px;
-	margin:10px;
+	min-height:210px;
+	min-width:280px;
+	max-height:210px;
+	max-width:280px;
+	background-color:#D8D8D8;
+  border: 2px solid #d0d0d0;
+}
+.banner{
+	height:150px;
+	width:270px;
+	margin:5px;
+}
+.price{
+	font-size:18px;
+	margin:0;
+}
+.owner{
+	font-size:18px;
+	margin-top:0px;
+	margin-right:20px;
+}
+.tile:hover{
+  border: 2px solid gray;
+	cursor:pointer;
 }
