@@ -7,7 +7,14 @@ $(window).on('load',function(){
 	$.ajax({
 		url :"http://127.0.0.1:5000/data",
 		type:"GET",
+		beforeSend: function(){
+			loading_image = document.createElement('img'); 
+			loading_image.setAttribute('id','loading');
+			loading_image.src = "loading-gif.gif";
+			document.body.appendChild(loading_image)
+		},
 		success: function(response , status) {
+			document.getElementById('loading').remove()
 			update_data(response)
 			console.log("works");
 		},
