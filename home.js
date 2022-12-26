@@ -10,7 +10,7 @@ $(window).on('load',function(){
 		beforeSend: function(){
 			loading_image = document.createElement('img'); 
 			loading_image.setAttribute('id','loading');
-			loading_image.src = "loading-gif.gif";
+			loading_image.src = "images/loading-gif.gif";
 			document.body.appendChild(loading_image)
 		},
 		success: function(response , status) {
