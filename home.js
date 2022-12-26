@@ -22,6 +22,12 @@ $(window).on('load',function(){
 
 })
 
+function clicked(el){
+	tile = el.target.parentNode
+	console.log(tile.id)
+}
+
+
 function update_data(response){
 	var tiles_list = [];
 	var banners_list = [];
@@ -29,11 +35,17 @@ function update_data(response){
 	var prices_list = [];
 	for(var i = 0 ; i < response.length ; i++){
 		tile = document.createElement('div');
+		
 		banner = document.createElement('img');
 		owner = document.createElement('p');
 		price = document.createElement('p');
 
+		tile.addEventListener("click", function(el){
+			clicked(el);
+		});
+
 		tile.setAttribute('class','tile')
+		tile.setAttribute('id',i)
 		banner.setAttribute('class','banner')
 		owner.setAttribute('class','owner')
 		price.setAttribute('class','price')
@@ -51,8 +63,10 @@ function update_data(response){
 		owners_list.push(owner)
 		tiles_list.push(tile)
 
+		
 		document.getElementById("tiles-container").appendChild(tile);
 	}
 
-	console.log(tiles_list)
 }
+
+
