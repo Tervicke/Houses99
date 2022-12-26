@@ -1,12 +1,17 @@
+body{
+	background-color:#D8D8D8;
+}
 #tiles-container{
 	margin-top:5px;
-	background-color:"blue";
+	background-color:"";
 	display:flex;
 	flex-direction:flow;
 	flex-wrap:wrap;
 	justify-content:center;
 	Z-index:-1;
+	border:2px solid grey;
 }
+
 
 .tile{
 	min-height:210px;
