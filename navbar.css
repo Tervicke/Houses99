@@ -9,6 +9,7 @@ nav{
 	color:Black;
 	display:inline block;
 	background-color:#D8D8D8;
+	border:2px solid grey;
 }
 nav a{
 	font-size:25px;
