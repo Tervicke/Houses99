@@ -1,6 +1,10 @@
 body{
 	background-color:#D8D8D8;
 }
+#view{
+	margin-top:15px;
+	padding:5px;
+}
 #tiles-container{
 	margin-top:5px;
 	background-color:"";
@@ -9,10 +13,7 @@ body{
 	flex-wrap:wrap;
 	justify-content:center;
 	Z-index:-1;
-	border:2px solid grey;
 }
-
-
 .tile{
 	min-height:210px;
 	min-width:280px;
@@ -48,4 +49,47 @@ body{
 	transform: translateX(-50%) translateY(-50%);
 	max-width:70px;
 	max-height:70px;
+}
+
+#view-image{
+	width:600px !important;
+	height:400px !important;
+	margin-right:12px;
+	display:inline-block;
+	margin-bottom:10px;
+}
+#owners-info{
+	display:inline-block;
+	vertical-align:top;
+}
+#container{
+}
+#owners-info{
+	border:2px solid grey;
+	padding:4px;
+	width:400px;
+	height:390px !important;
+}
+#owners-info *{
+	border-bottom:1px solid grey;
+	font-size:20px;
+}
+#rentnow-btn{
+	background-color:#32CD32;
+	margin-top:2px;
+	font-size:25px;
+	border:None;
+	width:100%;
+}
+#rentnow-btn:hover{
+	cursor:pointer
+}
+#email-btn{
+	background-color:#ff7c68;
+	font-size:25px;
+	border:None;
+	width:100%;
+}
+#email-btn:hover{
+	cursor:pointer;
 }
