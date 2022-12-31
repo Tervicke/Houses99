@@ -30,11 +30,6 @@ def get_final_data(raw_data):
         j=0
         while j < 8:
             if j == 6:
-                print(raw_data[i][j])
-                print(len(raw_data))
-                print(len(final_data))
-                print(i)
-                print(j)
                 final_data[i][j] =  base64.b64encode(raw_data[i][j]).decode('utf-8')
             else:
                 final_data[i][j] = raw_data[i][j]
