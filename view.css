@@ -1,0 +1,59 @@
+body{
+	background-color:#D8D8D8;
+}
+#loading{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-moz-transform: translateX(-50%) translateY(-50%);
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+	max-width:70px;
+	max-height:70px;
+}
+#view-image{
+	width:600px !important;
+	height:400px !important;
+	margin-right:12px;
+	display:inline-block;
+	margin-bottom:10px;
+	margin-left:12px;
+	border:2px solid grey;
+}
+#owners-info{
+	display:inline-block;
+	vertical-align:top;
+}
+#container{
+	margin-top:12px;
+	display:None;
+}
+#owners-info{
+	border:2px solid grey;
+	padding:4px;
+	width:400px;
+	height:390px !important;
+}
+#owners-info *{
+	border-bottom:1px solid grey;
+	font-size:20px;
+}
+#rentnow-btn{
+	background-color:#32CD32;
+	margin-top:2px;
+	font-size:25px;
+	border:None;
+	width:100%;
+}
+#rentnow-btn:hover{
+	cursor:pointer
+}
+#email-btn{
+	background-color:#ff7c68;
+	font-size:25px;
+	border:None;
+	width:100%;
+}
+#email-btn:hover{
+	cursor:pointer;
+}
