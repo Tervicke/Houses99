@@ -24,7 +24,7 @@ function update_data(response){
 	document.getElementById('view-image').src = "data:image/png;base64, " + response[id][6]
 	document.getElementById('owner-name').innerHTML = "Name : "+response[id][1]
 	document.getElementById('owner-no').innerHTML = "Contact : "+response[id][2]
-	document.getElementById('owner-adress').innerHTML = "Adress : " +response[id][5]
+	document.getElementById('owner-adress').innerHTML = "City : " +response[id][5]
 	document.getElementById('rent').innerHTML = "Rent : " +response[id][7]
 	document.getElementById('container').style.display = 'block'
 	console.log("helloworld")
