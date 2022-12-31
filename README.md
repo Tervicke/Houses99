@@ -1,5 +1,6 @@
 # Houses99
 A real Estate website 
+![Screenshot](images/screen.jpg)
 ## running locally 
 First run the web server by running 
 ```
