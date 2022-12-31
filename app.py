@@ -37,5 +37,16 @@ def get_final_data(raw_data):
         i+=1;
 
     return final_data
+
+@app.route('/City/<city>')
+def get_by_city(city):
+    cur = conn.cursor()
+    c = city[1:-1]
+    print("SELECT * from properties where city='"+c+"';")
+    cur.execute("SELECT * from properties where city='"+c+"';")
+    data = cur.fetchall()
+    print(type(data))
+    return jsonify(get_final_data(data))
+
 if __name__ =='__main__':  
     app.run(debug = True)
