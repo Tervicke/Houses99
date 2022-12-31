@@ -1,7 +1,7 @@
 # Houses99
 A real Estate website 
 ## running locally 
-First run the api from the ```/app``` by running 
+First run the api by running 
 ```
 python3 app.py 
 ```
