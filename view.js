@@ -29,7 +29,7 @@ function clicked(el, suggestion_data){
 	else{
 		sessionStorage.setItem('clicked', suggestion_data[parseInt(tile.id)-1][0])
 		window.location.href="http://localhost:8000/view.html"
-	}
+}
 }
 
 
