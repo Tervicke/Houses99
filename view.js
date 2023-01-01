@@ -18,9 +18,24 @@ $(window).on('load',function(){
 		},
 	})
 })
+function clicked(el, suggestion_data){
+	
+	tile = el.target.parentNode
+	if(parseInt(tile.id) - 1 < 0){
+		console.log(parseInt(tile.id))
+		sessionStorage.setItem('clicked', suggestion_data[parseInt(tile.id)][0] - 1)
+		window.location.href="http://localhost:8000/view.html"
+	}
+	else{
+		sessionStorage.setItem('clicked', suggestion_data[parseInt(tile.id)-1][0])
+		window.location.href="http://localhost:8000/view.html"
+	}
+}
+
 
 function update_data(response){
 	id = sessionStorage.getItem('clicked')
+	console.log(id)
 	document.getElementById('view-image').src = "data:image/png;base64, " + response[id][6]
 	document.getElementById('owner-name').innerHTML = "Name : "+response[id][1]
 	document.getElementById('owner-no').innerHTML = "Contact : "+response[id][2]
@@ -33,23 +48,23 @@ function update_data(response){
 		url :"http://127.0.0.1:5000/City/\""+response[id][5]+"\"",
 		type:"GET",
 		beforeSend: function(){
-			console.log("working")
 		},
 		success: function(suggestion_data, status) {
 			console.log(suggestion_data)
 
 			for(var i = 0 ; i < suggestion_data.length ; i++){
-				console.log(suggestion_data[i][0])
-				console.log(id)
 
 				if((suggestion_data[i][0]-1) === parseInt(id)){
-					console.log("works")
 				}
 				else{
-					console.log("print else")
 					tile = document.createElement('div')
 					tile.setAttribute('class','tile')
+					tile.setAttribute('id',i)
 					document.getElementById('suggestions').appendChild(tile);
+
+					tile.addEventListener("click", function(el){
+						clicked(el,suggestion_data);
+					});
 
 					banner = document.createElement('img')
 					banner.setAttribute('class','banner')
@@ -61,10 +76,9 @@ function update_data(response){
 					price.innerHTML = "$ " +suggestion_data[i][7]
 					tile.appendChild(price)
 
-
 					owner = document.createElement('p')
 					owner.setAttribute('class','owner')
-					owner.innerHTML = "@ " + response[i][1]
+					owner.innerHTML = "@ " + suggestion_data[i][1]
 					tile.appendChild(owner)
 
 
