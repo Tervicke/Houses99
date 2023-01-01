@@ -42,7 +42,7 @@ function update_data(response){
 	document.getElementById('owner-adress').innerHTML = "City : " +response[id][5]
 	document.getElementById('rent').innerHTML = "Rent : " +response[id][7]
 	document.getElementById('container').style.display = 'block'
-	document.getElementById('suggestions-title').innerHTML = "Explore More in " + response[id][5]
+	document.getElementById('suggestions-title').innerHTML = "See More in " + response[id][5]
 	console.log("helloworld")
 	$.ajax({
 		url :"http://127.0.0.1:5000/City/\""+response[id][5]+"\"",
