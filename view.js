@@ -27,6 +27,54 @@ function update_data(response){
 	document.getElementById('owner-adress').innerHTML = "City : " +response[id][5]
 	document.getElementById('rent').innerHTML = "Rent : " +response[id][7]
 	document.getElementById('container').style.display = 'block'
+	document.getElementById('suggestions-title').innerHTML = "Explore More in " + response[id][5]
 	console.log("helloworld")
+	$.ajax({
+		url :"http://127.0.0.1:5000/City/\""+response[id][5]+"\"",
+		type:"GET",
+		beforeSend: function(){
+			console.log("working")
+		},
+		success: function(suggestion_data, status) {
+			console.log(suggestion_data)
+
+			for(var i = 0 ; i < suggestion_data.length ; i++){
+				console.log(suggestion_data[i][0])
+				console.log(id)
+
+				if((suggestion_data[i][0]-1) === parseInt(id)){
+					console.log("works")
+				}
+				else{
+					console.log("print else")
+					tile = document.createElement('div')
+					tile.setAttribute('class','tile')
+					document.getElementById('suggestions').appendChild(tile);
+
+					banner = document.createElement('img')
+					banner.setAttribute('class','banner')
+					banner.src = "data:image/png;base64, " + suggestion_data[i][6]
+					tile.appendChild(banner)
+
+					price = document.createElement('p')
+					price.setAttribute('class','price')
+					price.innerHTML = "$ " +suggestion_data[i][7]
+					tile.appendChild(price)
+
+
+					owner = document.createElement('p')
+					owner.setAttribute('class','owner')
+					owner.innerHTML = "@ " + response[i][1]
+					tile.appendChild(owner)
+
+
+				}
+			}
+
+		},
+
+	})
+
 }
+
 

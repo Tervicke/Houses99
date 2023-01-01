@@ -13,7 +13,7 @@ body{
 }
 #view-image{
 	width:600px !important;
-	height:400px !important;
+	height:360px !important;
 	margin-right:12px;
 	display:inline-block;
 	margin-bottom:10px;
@@ -32,7 +32,7 @@ body{
 	border:2px solid grey;
 	padding:4px;
 	width:400px;
-	height:390px !important;
+	height:350px !important;
 }
 #owners-info *{
 	border-bottom:1px solid grey;
@@ -56,4 +56,38 @@ body{
 }
 #email-btn:hover{
 	cursor:pointer;
+}
+.tile{
+	min-height:210px;
+	min-width:280px;
+	max-height:210px;
+	max-width:280px;
+	background-color:#D8D8D8;
+	border: 2px solid #d0d0d0;
+	display:inline-block;
+}
+.banner{
+	height:150px;
+	width:270px;
+	margin:5px;
+}
+.price{
+	font-size:18px;
+	margin:0;
+}
+.owner{
+	font-size:18px;
+	margin-top:0px;
+	margin-right:20px;
+}
+.tile:hover{
+	border: 2px solid gray;
+	cursor:pointer;
+}
+#suggestions{
+	margin-left:12px;
+}
+#suggestions-title{
+	font-size:20px;
+	margin:0px;
 }
