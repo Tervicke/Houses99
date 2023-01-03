@@ -1,0 +1,66 @@
+<html>
+	<head>
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		<title>
+			Houses99 - Buy , Rent & Sell
+		</title>
+
+		<link rel = "icon" href = "images/icon.png"
+					type = "image/x-icon">
+		<link rel="stylesheet" href="sell.css">
+	</head>
+	<body>
+		<div id="navbar-container">
+		</div>
+		<div id="container">
+
+			<table border="0" id="form">
+				<tr>
+					<td><p class="titles">Full name:</p></td>
+					<td><input type="text"  id="name" class="input-fields"></td>
+				</tr>
+				<tr>
+					<td><p class="titles">Contact No: </p></td>
+					<td><input type="text"  id="contact" class="input-fields"></td>
+				</tr>
+				<tr>
+					<td><p class="titles">Email: </p></td>
+					<td><input type="text"  id="email" class="input-fields"></td>
+				</tr>
+				<tr>
+					<td><p class="titles">City: </p></td>
+					<td><input type="text"  id="city" class="input-fields"></td>
+				</tr>
+				<tr>
+					<td><p class="titles">Rent: </p></td>
+					<td><input type="text"  id="rent" class="input-fields"></td>
+				</tr>
+				<tr>
+					<td>
+						<p class="titles">Upload photo</p>
+					</td>
+					<td>
+						<input type="file" name="filename" id="img-input" accept=".jpg, .jpeg, .png" /> 
+					</td>
+					<tr>
+						<td></td>
+						<td>
+							<img src="images/default.png" id="img-preview"></img>
+						</td>
+					</tr>
+
+				</tr>
+				<td>
+					<div id="submit-btn">Submit</div>
+				</td>
+
+				</tr>
+					<p id="Errors"> </p>
+				</tr>
+
+			</table>
+		</div>
+	</body>
+
+	<script src="sell.js"></script>
+</html>
