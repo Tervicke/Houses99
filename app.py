@@ -7,12 +7,12 @@ import sqlite3 as db
 from PIL import Image
 import io
 from flask_cors import CORS, cross_origin
+import json 
 
 app = Flask(__name__) #creating the Flask class object   
 CORS(app)
 conn = db.connect('data.db' , check_same_thread=False)
 
-  
 @app.route('/data')
 def success():
     cur = conn.cursor()
@@ -47,6 +47,18 @@ def get_by_city(city):
     data = cur.fetchall()
     print(type(data))
     return jsonify(get_final_data(data))
+
+@app.route('/repeat', methods = ['GET','POST'])
+def repeat():
+    data = request.get_json()
+    cur = conn.cursor()
+    cur.execute("insert into ")
+    print(data['0']) #name
+    print(data['1']) #contact
+    print(data['2']) #Email
+    print(data['3']) #City
+    print(data['4']) #rent
+    return jsonify("from the web app")
 
 if __name__ =='__main__':  
     app.run(debug = True)
