@@ -24,18 +24,17 @@ def success():
 
 def get_final_data(raw_data):
     i,j = 0 , 0
-    w, h = 8, len(raw_data)
+    w, h = len(raw_data[0]), len(raw_data)
     final_data = [[0 for x in range(w)] for y in range(h)]
     while i < len(raw_data):
         j=0
-        while j < 8:
+        while j < w:
             if j == 6:
                 final_data[i][j] =  base64.b64encode(raw_data[i][j]).decode('utf-8')
             else:
                 final_data[i][j] = raw_data[i][j]
             j+=1;
         i+=1;
-
     return final_data
 
 @app.route('/City/<city>')

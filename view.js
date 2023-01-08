@@ -19,23 +19,21 @@ $(window).on('load',function(){
 	})
 })
 function clicked(el, suggestion_data){
-	
+
 	tile = el.target.parentNode
 	if(parseInt(tile.id) - 1 < 0){
-		console.log(parseInt(tile.id))
 		sessionStorage.setItem('clicked', suggestion_data[parseInt(tile.id)][0] - 1)
 		window.location.href="http://localhost:8000/view.html"
 	}
 	else{
 		sessionStorage.setItem('clicked', suggestion_data[parseInt(tile.id)-1][0])
 		window.location.href="http://localhost:8000/view.html"
-}
+	}
 }
 
 
 function update_data(response){
 	id = sessionStorage.getItem('clicked')
-	console.log(id)
 	document.getElementById('view-image').src = "data:image/png;base64, " + response[id][6]
 	document.getElementById('owner-name').innerHTML = "Name : "+response[id][1]
 	document.getElementById('owner-no').innerHTML = "Contact : "+response[id][2]
@@ -43,15 +41,17 @@ function update_data(response){
 	document.getElementById('rent').innerHTML = "Rent : $" +response[id][7]
 	document.getElementById('container').style.display = 'block'
 	document.getElementById('suggestions-title').innerHTML = "See More in " + response[id][5]
-	console.log("helloworld")
+	$('#email-btn').click(function() {
+		window.location='mailto:'+response[id][8];
+	});
+
+	console.log(response)
 	$.ajax({
 		url :"http://127.0.0.1:5000/City/\""+response[id][5]+"\"",
 		type:"GET",
 		beforeSend: function(){
 		},
 		success: function(suggestion_data, status) {
-			console.log(suggestion_data)
-
 			for(var i = 0 ; i < suggestion_data.length ; i++){
 
 				if((suggestion_data[i][0]-1) === parseInt(id)){
