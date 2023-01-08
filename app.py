@@ -48,17 +48,26 @@ def get_by_city(city):
     print(type(data))
     return jsonify(get_final_data(data))
 
-@app.route('/repeat', methods = ['GET','POST'])
+@app.route('/post', methods = ['GET','POST'])
 def repeat():
     data = request.get_json()
     cur = conn.cursor()
-    cur.execute("insert into ")
     print(data['0']) #name
     print(data['1']) #contact
     print(data['2']) #Email
     print(data['3']) #City
     print(data['4']) #rent
-    return jsonify("from the web app")
+    print(data['5']) #image
+    add_data(data)
+    return jsonify("completed !")
+
+def add_data(data):
+    cur = conn.cursor()
+    # insert into properties(owner_contact , owner_name , rent) values(982023 , "Amey patil" , 1234)
+    cur.execute("insert into properties(owner_name , owner_contact , Email, city  , rent_price , rent , photo) values (?,?,?,?,?,?,?)",(data['0'] , data['1'] , data['2'] , data['3'] , data['4'] , 'yes' , base64.b64decode(data['5'] ) ) )
+    conn.commit()
+ 
+ #base64.b64decode
 
 if __name__ =='__main__':  
     app.run(debug = True)

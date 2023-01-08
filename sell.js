@@ -71,7 +71,7 @@ function ajax_post(data){
 	data[6] = "helloworld"
 	console.log("posting")
 	$.ajax({
-		url: 'http://127.0.0.1:5000/repeat',
+		url: 'http://127.0.0.1:5000/post',
 		dataType: 'json',
 		type: 'post',
 		contentType: 'application/json',
