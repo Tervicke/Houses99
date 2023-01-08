@@ -1,7 +1,9 @@
 # Houses99
 <b>A real Estate website written with vanilla javascript and flask web server</b>
 
-![Screenshot](images/screen.jpg)
+![Screenshot](images/screen_1.jpg)
+![Screenshot](images/screen_3.jpg)
+![Screenshot](images/screen_2.jpg)
 ## running locally 
 First run the web server by running 
 ```
