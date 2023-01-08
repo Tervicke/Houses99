@@ -40,7 +40,7 @@ function update_data(response){
 	document.getElementById('owner-name').innerHTML = "Name : "+response[id][1]
 	document.getElementById('owner-no').innerHTML = "Contact : "+response[id][2]
 	document.getElementById('owner-adress').innerHTML = "City : " +response[id][5]
-	document.getElementById('rent').innerHTML = "Rent : " +response[id][7]
+	document.getElementById('rent').innerHTML = "Rent : $" +response[id][7]
 	document.getElementById('container').style.display = 'block'
 	document.getElementById('suggestions-title').innerHTML = "See More in " + response[id][5]
 	console.log("helloworld")
