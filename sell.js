@@ -23,48 +23,56 @@ submit_btn.addEventListener("click", async function(el){
 
 	var input_fields = document.getElementsByClassName("input-fields");
 
-	if(check_for_errors(input_fields)){
+	if(check_for_errors()){
 		var values = {};
 		for(var i = 0 ; i < input_fields.length ; i++){
 			values[i] = input_fields[i].value;
 		}
 	}
 
-	var InputImage= document.getElementById('img-input').files[0];
+	if(check_for_errors()){
+		var InputImage= document.getElementById('img-input').files[0];
 
-	var reader = new FileReader();
-	let imageBase64Stringsep;
-	var base64String;
-	console.log("next");
+		var reader = new FileReader();
+		let imageBase64Stringsep;
+		var base64String;
 
-	reader.onload = function () {
-		base64String = reader.result.replace("data:", "")
-			.replace(/^.+,/, "");
+		reader.onload = function () {
+			base64String = reader.result.replace("data:", "")
+				.replace(/^.+,/, "");
 
-		console.log(typeof(base64String))
-		values[5] = base64String
-		imageBase64Stringsep = base64String;
+			if(check_for_errors()){
+				values[5] = base64String
+			}
+			imageBase64Stringsep = base64String;
 
+		}
+		reader.readAsDataURL(InputImage)
+		await sleep(3000)
 	}
-	reader.readAsDataURL(InputImage)
-	await sleep(3000)
-	ajax_post(values)
-	errors = document.getElementById("Errors")
-	errors.style.color = 'green';
-	errors.innerHTML = "Success!"
-	remove_values(input_fields)
+
+	if(check_for_errors()){
+		console.log("in")
+		ajax_post(values)
+		errors = document.getElementById("Errors")
+		errors.style.color = 'green';
+		errors.innerHTML = "Success!"
+		remove_values(input_fields)
+		document.getElementById('img-preview').src = "images/default.png"
+	}
+
 })
 
 function remove_values(input_fields){
 
-for(var i = 0 ; i < input_fields.length ; i++){
-			input_fields[i].value = "";
-		}
+	for(var i = 0 ; i < input_fields.length ; i++){
+		input_fields[i].value = "";
+	}
 
 }
 
 function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
+	return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 function ajax_post(data){
@@ -86,25 +94,35 @@ function ajax_post(data){
 	});
 }
 
-function check_for_errors(input_fields){
-	for(var i = 0 ; i < input_fields.length ; i++){
+function check_for_errors(){
+	input_fields = document.getElementsByClassName("input-fields");
+	errors = document.getElementById("Errors")
 
+	if(document.getElementById('img-input').value == ""){
+		errors.style.color = 'red';
+		errors.innerHTML = "Please fill the complete info!"
+		return false;
+	}
+
+	for(var i = 0 ; i < input_fields.length ; i++){
 		if(input_fields[i].value == ""){
-			document.getElementById("Errors").innerHTML = "Please fill the complete info!"
+			errors.style.color = 'red';
+			errors.innerHTML = "Please fill the complete info!"
 			return false;
 		}
 
 		if(i == 1 || i == 4){
 
 			if( !isNumeric(input_fields[i].value) ){
-				console.log("works")
-				document.getElementById("Errors").innerHTML = "Please fill the Correct info!"
+				errors.style.color = 'red';
+				errors.innerHTML = "Please fill the Correct info!"
 				return false;
 			}
 
 		}
 
 	}
+	
 	return true;
 }
 function isNumeric(value) {

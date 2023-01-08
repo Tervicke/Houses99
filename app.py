@@ -52,12 +52,6 @@ def get_by_city(city):
 def repeat():
     data = request.get_json()
     cur = conn.cursor()
-    print(data['0']) #name
-    print(data['1']) #contact
-    print(data['2']) #Email
-    print(data['3']) #City
-    print(data['4']) #rent
-    print(data['5']) #image
     add_data(data)
     return jsonify("completed !")
 
